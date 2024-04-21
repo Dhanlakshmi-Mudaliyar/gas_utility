@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Requests</title>
+</head>
+<body>
+<h1>My Requests</h1>
+    <ul>
+        {% for request in requests %}
+            <li>
+                <strong>{{ request.req_type }}</strong>
+                <p>Status: {{ request.status }}</p>
+                <p>Submitted at: {{ request.submit_at }}</p>
+                {% if request.solved_at %}
+                    <p>Resolved at: {{ request.solved_at }}</p>
+                {% endif %}
+            </li>
+        {% empty %}
+            <li>No service requests found.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
